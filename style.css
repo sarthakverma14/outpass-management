@@ -1,0 +1,58 @@
+Responsive{
+	width:100%;
+	border-collapse: collapse;
+}
+
+tr:nth-of-type(odd){
+	background: #CCFFEB
+}
+tr:nth-of-type(even){
+	background: #99FFD6;
+}
+
+#HeadRow{
+	background: #004C2E;
+	color: white;
+	font-weight: bold;
+}
+
+#Responsive td{
+	padding: 5px;
+	border:1px solid black;
+	text-align: left;
+}
+
+@media screen and (max-width:800px){
+	#Responsive,
+	#Responsive tbody,
+	#Responsive tr,
+	#Responsive td{
+		display: block;
+		}
+#HeadRow{
+	position:absolute;
+	left: -9999px;
+	top: -9999px;
+}		
+#Responsive td{
+	border:none;
+	position: relative;
+	padding-left: 40%;
+	white-space: normal;
+	text-align: left;
+}
+
+#Responsive td:before{
+	position: absolute;
+	top:5px;
+	left:5px;
+	width:40%;
+	padding-right: 10px;
+	white-space: nowrap;
+	text-align: left;
+	font-weight: bold;
+}
+#Resposive td:before{
+	content:attr(tHD);
+}
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Outpass</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>						
+  <script src="form.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </style>
+	<script>
+		document.getElementById("register").submit(function(e){
+			e.preventDefault();
+			alert("submit");
+			return false;
+		});
+	</script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: orange;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 50%; /* Set width to 100% */
+      margin: 100px;
+      min-height:100px;
+	  filter: blur(200px);
+ 
+  }
+  
+  body {
+     background: url('http://magarticles.magzter.com/articles/410/236636/59a598a8e876f/Manipal-University-Jaipur-Fostering-Academic-Excellence.jpg') fixed;
+    background-size: cover;
+}
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: beige;
+}
+
+*[role="form"] h2 { 
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+  /* Hide the carousel text when the screen is less than 400 pixels wide */
+  @media (max-width: 200px) {
+    .carousel-caption {
+      display: none;
+	  
+    }
+  }
+  </style>
+</head>
+<body>
+
+<?php
+// define variables and set to empty values
+$firstnameErr = $emailErr = $blockErr = $roomErr $leaveaddressErr = "";
+$firstname = $lastname = $email = $room = $leaveaddress = $block = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["firstname"])) {
+    $nameErr = "First Name is required";
+  } else {
+    $firstname = test_input($_POST["firstname"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $firstnameErr = "Only letters and white space allowed"; 
+    }
+  }
+  
+  if (empty($_POST["lastname"])) {
+    $lastnameErr = "last Name is required";
+  } else {
+    $lastname = test_input($_POST["lastname"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $lasstnameErr = "Only letters and white space allowed"; 
+    }
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format"; 
+    }
+  }
+
+  if (empty($_POST["block"])) {
+    $block = "";
+  } else {
+    $block = test_input($_POST["block"]);
+  }
+  if (empty($_POST["leaveaddress"])) {
+    $leaveaddress = "";
+  } else {
+    $leaveaddress = test_input($_POST["leaveaddress"]);
+  }
+
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">MUJ</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="w3school.html">Student</a></li>
+        <li><a href="warden.html">Warden</a></li>
+        <li><a href="HOD.html">HOD</a></li>
+		<li><a href="about.html">About our website</a></li>
+		
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="studentlogin.html"><span class="glyphicon glyphicon-log-in"></span> Student login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav> 
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+
+    
+
+
+		
+   
+</div>
+
+<div class="container">
+
+            <form class="form-horizontal" id="fileForm" role="form" method="post" action="thank.html">
+
+			
+               <h2>Please Login to approve the requests</h2>
+                
+				
+                <div class="form-group">
+                   <label for="email" class="col-sm-3 control-label"><span class="req">* </span> Email Address: </label> 
+				   <div class="col-sm-9">
+                    <input class="form-control" type="text" name="email" id = "email"  required> 
+                       
+						</div>
+						</div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password*</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="pass1" placeholder="Password" class="form-control" required>
+                    </div>
+                </div>
+                
+				
+               <!-- /.form-group -->
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <p><span class="error">* required field</span></p>
+                    </div>
+                </div>
+                <a href="thank.html"><button onclick="myFunction()" type="submit" class="btn btn-primary btn-block" >Submit Request</button></a>
+				
+            </form> <!-- /form -->
+			
+        </div> <!-- ./container -->
+  
+<div class="container text-center">    
+ 
+
+<br>
+<br>
+<br>
+
+<footer class="container-fluid text-center">
+  <p>This site is property of MUJ</p>
+</footer>
+
+</body>
+</html>
